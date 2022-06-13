@@ -4,19 +4,20 @@ import searchContext from '../../context/searchContext';
 import styles from './SearchBar.module.css';
 
 export default function SearchBar() {
-  const { search, setSearch, setIsLoading, setCompanyData } =
-    useContext(searchContext);
-  const [searchInput, setSearchInput] = useState('Recherchez une société');
+  const { setSearch, setIsLoading, setCompanyData } = useContext(searchContext);
+  const [searchInput, setSearchInput] = useState();
 
   const handleSearch = (e) => {
     setSearchInput(e.target.value);
   };
 
   const submitSearch = (e) => {
-    e.preventDefault();
-    setSearch(searchInput);
-    setCompanyData(null);
-    setIsLoading(true);
+    if (searchInput) {
+      e.preventDefault();
+      setSearch(searchInput);
+      setCompanyData(null);
+      setIsLoading(true);
+    } else window.alert("Vous n'avez pas rentrez de recherche");
   };
 
   return (
@@ -27,7 +28,7 @@ export default function SearchBar() {
             type="text"
             id="search_bar"
             className={styles.searchBarInput}
-            placeholder={searchInput}
+            placeholder="Recherchez une société"
             onChange={handleSearch}
           />
         </label>

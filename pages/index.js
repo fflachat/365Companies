@@ -25,17 +25,16 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [companyData, setCompanyData] = useState();
 
-  const fetchData = async (s) => {
+  const fetchData = async () => {
     await axios
-      .get(`/api/company/${s}`)
+      .get(`/api/company/${search}`)
       .then((res) => setCompanyData(res.data))
       .finally(() => setIsLoading(false));
-    console.log('data test', companyData);
   };
 
   useEffect(() => {
     if (isLoading) {
-      fetchData(search);
+      fetchData();
     }
   }, [isLoading, search, companyData]);
 

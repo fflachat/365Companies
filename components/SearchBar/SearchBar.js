@@ -17,7 +17,7 @@ export default function SearchBar() {
       setSearch(searchInput);
       setCompanyData(null);
       setIsLoading(true);
-    } else window.alert("Vous n'avez pas rentrez de recherche");
+    } else window.alert("Merci de préciser le nom d'une société");
   };
 
   return (

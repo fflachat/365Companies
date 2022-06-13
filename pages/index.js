@@ -27,7 +27,7 @@ export default function Home() {
 
   const fetchData = async (s) => {
     await axios
-      .get(`./api/company/${s}`)
+      .get(`/api/company/${s}`)
       .then((res) => setCompanyData(res.data))
       .finally(() => setIsLoading(false));
     console.log('data test', companyData);

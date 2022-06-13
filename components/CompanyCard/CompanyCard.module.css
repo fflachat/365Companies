@@ -54,14 +54,15 @@ padding-left: 50px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40vw;
-    height: 30vw;
     max-height: 500px;
     max-width: 500px;
+    min-height: 300px;
+    min-width: 300px;
     border: black solid;
     border-radius: 20px;
     margin: 20px;
     padding: 20px;
+    font-size: 2vw;
 }
 
 .websiteLink{

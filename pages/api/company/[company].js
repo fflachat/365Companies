@@ -1,9 +1,8 @@
-const scrapCompanyData = require('../../../model/getCompanyData');
+const scrapCompanyData = require('../../../server/lib/scrapCompanyData');
 
 const getCompanyData = async (company) => {
   try {
     const result = await scrapCompanyData(company);
-    console.log('getCompany', result);
     return result;
   } catch (error) {
     console.log(error);

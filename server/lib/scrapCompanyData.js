@@ -3,6 +3,18 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 
 puppeteer.use(StealthPlugin);
 
+const chromeOptions = {
+  headless: true,
+  defaultViewport: null,
+  args: [
+    '--incognito',
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--single-process',
+    '--no-zygote',
+  ],
+};
+
 module.exports = async function scrapCompanyData(company) {
   let description = '-';
   let logoUrl = '-';
@@ -16,9 +28,7 @@ module.exports = async function scrapCompanyData(company) {
   let activity = '-';
 
   // 1 - Créer une instance de navigateur
-  const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+  const browser = await puppeteer.launch(chromeOptions);
   const pageLinkedin = await browser.newPage();
   const pageSocieteCom = await browser.newPage();
 

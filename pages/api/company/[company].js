@@ -1,4 +1,4 @@
-const scrapCompanyData = require('../../../server/lib/getCompanyData');
+const scrapCompanyData = require('../../../server/lib/scrapCompanyData');
 
 const getCompanyData = async (company) => {
   try {

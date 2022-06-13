@@ -16,7 +16,7 @@ module.exports = async function scrapCompanyData(company) {
   let activity = '-';
 
   // 1 - Créer une instance de navigateur
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   const pageLinkedin = await browser.newPage();
   const pageSocieteCom = await browser.newPage();
 
